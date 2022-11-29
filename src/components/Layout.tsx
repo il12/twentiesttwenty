@@ -9,7 +9,7 @@ const Component = () => {
 
     const getRandomMonth = async () => {
         setInput('')
-        const response = await fetch('/data.json');
+        const response = await fetch('data.json');
         const json = await response.json();
         const randomNumber = Math.floor(Math.random() * json.length)
         const date = new Date(json[randomNumber].month);

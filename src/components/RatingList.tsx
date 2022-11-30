@@ -12,7 +12,7 @@ type IProps = {
 const Component = ({input, list}: IProps) => {
     return (
         list.length ? <div style={{
-            width: '50vw',
+            minWidth: '50vw',
             background: 'rgba(0,0,0,0.5)',
             borderRadius: '1rem',
             color: "white",

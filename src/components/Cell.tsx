@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 
 type IProps = {
     isHelper: boolean,
@@ -8,15 +8,28 @@ type IProps = {
 
 const Component = ({isHelper, hidden, content}: IProps) => {
     const [isOpen, setIsOpen] = useState(false)
+    const [width, setWidth] = useState<number>(window.innerWidth);
+    const isMobile = width <= 768;
+
+    const handleWindowSizeChange = () => {
+        setWidth(window.innerWidth);
+    }
 
     const openField = ()=>{
         setIsOpen(true)
     }
 
+    useEffect(() => {
+        window.addEventListener('resize', handleWindowSizeChange);
+        return () => {
+            window.removeEventListener('resize', handleWindowSizeChange);
+        }
+    }, []);
+
     return (
-        <div onClick={isHelper ? openField : ()=>{}}>
+        <div style={{whiteSpace: 'nowrap'}} onClick={isHelper ? openField : ()=>{}}>
             <strong>{hidden && !isOpen ? '*****' : content}</strong>
-            {isHelper && !isOpen && hidden ?
+            {isHelper && !isOpen && hidden && !isMobile ?
                 <svg width='20px' fill='white' focusable="false"
                      aria-hidden="true" viewBox="0 0 24 24" data-testid="HelpOutlineIcon">
                     <path

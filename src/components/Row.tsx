@@ -22,7 +22,7 @@ const Component = ({input, item}: IProps) => {
             <div style={{
                 display: 'grid',
                 gridTemplateColumns: 'repeat(5, 1fr)',
-                height: '2rem'
+                height: '3vh'
             }}>
                 <Cell isHelper={false} hidden={false} content={item.position}/>
                 <Cell isHelper={false} hidden={!isOpen} content={item.name}/>

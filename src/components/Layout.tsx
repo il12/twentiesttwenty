@@ -29,7 +29,6 @@ const Component = () => {
             flexDirection: 'column',
             justifyContent: "center",
             alignItems: 'center',
-            gap: '8px',
         }}>
             <button style={{
                 padding: '10px',

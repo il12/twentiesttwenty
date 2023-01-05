@@ -17,6 +17,7 @@ const Component = ({input, list}: IProps) => {
             borderRadius: '1rem',
             color: "white",
             padding: '1rem',
+            maxHeight: '75vh'
         }}>
             <div style={{
                 display: 'grid',
